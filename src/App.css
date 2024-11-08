@@ -1,0 +1,239 @@
+/* Global Styles */
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #000; /* Black background */
+	color: #ffcc00; /* Yellow text for contrast */
+	font-family: "Arial", sans-serif;
+}
+
+.app {
+	text-align: center;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem; /* Responsive padding */
+}
+
+/* Pokemon Search Styles */
+.pokemon-search {
+	margin: 2rem 0; /* Responsive margin */
+	display: flex; /* Flexbox to align items */
+	justify-content: center; /* Center items */
+	align-items: center; /* Vertically center items */
+	flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+/* Error message styling */
+.error-message {
+	color: yellow; /* Yellow error message */
+}
+
+/* Common button styles */
+.button {
+	padding: 0.8rem 1.2rem; /* Responsive padding */
+	border: none;
+	border-radius: 5px;
+	background-color: #ffcc00; /* Yellow background */
+	color: black; /* Black text */
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	font-size: 1em; /* Consistent font size */
+	margin: 0.5rem; /* Space between buttons */
+}
+
+.button:hover {
+	background-color: #e6b800; /* Darker yellow on hover */
+	transform: translateY(-2px);
+}
+
+.button:disabled {
+	background-color: #555; /* Dark gray for disabled buttons */
+	cursor: not-allowed;
+}
+
+/* Search input styles */
+.search-input {
+	width: 100%;
+	max-width: 300px; /* Limit max width */
+	padding: 0.8rem; /* Responsive padding */
+	border: 2px solid #ffcc00; /* Yellow border */
+	border-radius: 5px 0 0 5px; /* Rounded corners on the left */
+	background-color: #222; /* Dark background for input */
+	color: #fff; /* White text */
+	transition: border-color 0.3s;
+	font-size: 1rem; /* Responsive font size */
+	margin: 0.5rem; /* Space around input */
+}
+
+.search-input:focus {
+	border-color: #ffcc00; /* Yellow focus border */
+}
+
+/* Search button styles */
+.search-button {
+	padding: 0.8rem 1.2rem; /* Match the height of the input */
+	border: none;
+	border-radius: 0 5px 5px 0; /* Rounded corners on the right */
+	background-color: #ffcc00; /* Yellow background */
+	color: black; /* Black text */
+	margin-left: -1px; /* Overlap border */
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	font-size: 1rem; /* Responsive font size */
+}
+
+.search-button:hover {
+	background-color: #e6b800; /* Darker yellow on hover */
+	transform: translateY(-2px);
+}
+
+/* Clear button styles */
+.clear-button {
+	padding: 0.8rem 1.2rem; /* Match the height of the input */
+	border: none;
+	border-radius: 5px; /* Standard rounded corners */
+	background-color: #ffcc00; /* Yellow background */
+	color: black; /* Black text */
+	margin-left: 1rem; /* Space between buttons */
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	font-size: 1rem; /* Responsive font size */
+}
+
+.clear-button:hover {
+	background-color: #e6b800; /* Darker yellow on hover */
+	transform: translateY(-2px);
+}
+
+/* Dropdown styles */
+.pokemon-select {
+	margin-top: 1rem; /* Responsive margin */
+	padding: 0.8rem; /* Responsive padding */
+	border: 2px solid #ffcc00; /* Yellow border */
+	border-radius: 5px;
+	width: 100%;
+	max-width: 300px; /* Limit max width */
+	background-color: #222; /* Dark background */
+	color: #fff; /* White text */
+	transition: border-color 0.3s;
+	font-size: 1 rem; /* Responsive font size */
+}
+
+.pokemon-select:focus {
+	border-color: #ffcc00; /* Yellow focus border */
+}
+
+/* Pokemon Card Styles */
+.pokemon-card {
+	border: 1px solid #555; /* Dark gray border */
+	border-radius: 10px;
+	padding: 1rem; /* Responsive padding */
+	margin: 1rem; /* Responsive margin */
+	display: inline-block;
+	transition: transform 0.2s, box-shadow 0.2s;
+	background-color: #333; /* Dark card background */
+	box-shadow: 0 4px 8px rgba(255, 204, 0, 0.2); /* Yellow shadow */
+	width: 100%; /* Full width for responsiveness */
+	max-width: 220px; /* Limit max width */
+	height: auto; /* Auto height for flexibility */
+	position: relative; /* Position for pseudo-elements */
+	overflow: hidden; /* Hide overflow */
+}
+
+.pokemon-card:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(255, 204, 0, 0.4); /* Darker yellow shadow on hover */
+}
+
+/* Card Header */
+.pokemon-name {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0.5rem 0; /* Responsive margin */
+}
+
+/* Image styling */
+.pokemon-image {
+	width: 100%; /* Responsive image width */
+	height: auto; /* Maintain aspect ratio */
+	max-width: 120px; /* Limit max width */
+	margin: 0.5rem auto; /* Center image */
+}
+
+/* Types and Stats */
+.pokemon-type {
+	font-size: 0.9em;
+	color: #ffcc00; /* Yellow for types */
+}
+
+.pokemon-stats {
+	margin-top: 0.5rem; /* Responsive margin */
+	font-size: 0.8em;
+}
+
+/* Pagination styles */
+.pagination {
+	margin: 2rem 0; /* Responsive margin */
+	display: flex;
+	justify-content: center; /* Center pagination */
+	flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.pagination .pagination-button {
+	margin: 0.5rem; /* Responsive margin */
+	padding: 0.8rem 1.2rem; /* Responsive padding */
+	border: none;
+	border-radius: 5px;
+	background-color: #ffcc00; /* Yellow background */
+	color: black; /* Black text */
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	font-size: 1rem; /* Responsive font size */
+}
+
+.pagination .pagination-button:hover {
+	background-color: #e6b800; /* Darker yellow on hover */
+	transform: translateY(-2px);
+}
+
+.pagination .pagination-button.active {
+	background-color: #e6b800; /* Darker yellow for active button */
+	color: white; /* White text for active button */
+	font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Accessibility styles */
+:focus {
+	outline: 2px dashed #ffcc00; /* Yellow outline for focus */
+	outline-offset: 2px;
+}
+
+/* Responsive design for cards and pagination */
+@media (max-width: 768px) {
+	.pokemon-card {
+		width: 90%; /* Full width on smaller screens */
+		height: auto; /* Auto height for flexibility */
+	}
+
+	.pagination {
+		flex-direction: column; /* Stack pagination buttons */
+		align-items: center;
+	}
+
+	.button,
+	.clear-button,
+	.search-button {
+		width: 100%; /* Full width for buttons on mobile */
+		max-width: 200px; /* Limit max width */
+	}
+
+	.search-input,
+	.pokemon-select {
+		width: 100%; /* Full width for inputs on mobile */
+		max-width: 90%; /* Limit max width */
+	}
+}
