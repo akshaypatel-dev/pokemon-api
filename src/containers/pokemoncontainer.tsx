@@ -43,9 +43,21 @@ const PokemonSearchContainer: React.FC = () => {
 		indexOfLastPokemon
 	);
 
+	const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
+
 	const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-	const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
+	// Calculate the range of pages to display
+	const getPaginationRange = () => {
+		const range = [];
+		const start = Math.max(1, currentPage - 1);
+		const end = Math.min(totalPages, currentPage + 1);
+
+		for (let i = start; i <= end; i++) {
+			range.push(i);
+		}
+		return range;
+	};
 
 	return (
 		<div className="pokemon-search-container">
@@ -63,17 +75,31 @@ const PokemonSearchContainer: React.FC = () => {
 				))}
 			</div>
 			<div className="pagination">
-				{Array.from({ length: totalPages }, (_, index) => (
+				<button
+					onClick={() => paginate(currentPage - 1)}
+					disabled={currentPage === 1}
+					className="pagination-button"
+				>
+					Previous
+				</button>
+				{getPaginationRange().map((page) => (
 					<button
-						key={index + 1}
-						onClick={() => paginate(index + 1)}
+						key={page}
+						onClick={() => paginate(page)}
 						className={`pagination-button ${
-							currentPage === index + 1 ? "active" : ""
+							currentPage === page ? "active" : ""
 						}`}
 					>
-						{index + 1}
+						{page}
 					</button>
 				))}
+				<button
+					onClick={() => paginate(currentPage + 1)}
+					disabled={currentPage === totalPages}
+					className="pagination-button"
+				>
+					Next
+				</button>
 			</div>
 		</div>
 	);

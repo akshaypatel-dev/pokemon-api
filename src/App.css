@@ -43,6 +43,7 @@ body {
 	transition: background-color 0.3s, transform 0.2s;
 	font-size: 1em; /* Consistent font size */
 	margin: 0.5rem; /* Space between buttons */
+	flex: 1; /* Allow buttons to grow equally */
 }
 
 .button:hover {
@@ -61,7 +62,7 @@ body {
 	max-width: 300px; /* Limit max width */
 	padding: 0.8rem; /* Responsive padding */
 	border: 2px solid #ffcc00; /* Yellow border */
-	border-radius: 5px 0 0 5px; /* Rounded corners on the left */
+	border-radius: 5px; /* Standard rounded corners */
 	background-color: #222; /* Dark background for input */
 	color: #fff; /* White text */
 	transition: border-color 0.3s;
@@ -77,13 +78,13 @@ body {
 .search-button {
 	padding: 0.8rem 1.2rem; /* Match the height of the input */
 	border: none;
-	border-radius: 0 5px 5px 0; /* Rounded corners on the right */
+	border-radius: 5px; /* Standard rounded corners */
 	background-color: #ffcc00; /* Yellow background */
 	color: black; /* Black text */
-	margin-left: -1px; /* Overlap border */
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
 	font-size: 1rem; /* Responsive font size */
+	margin-left: 0.5rem; /* Space between input and button */
 }
 
 .search-button:hover {
@@ -98,10 +99,10 @@ body {
 	border-radius: 5px; /* Standard rounded corners */
 	background-color: #ffcc00; /* Yellow background */
 	color: black; /* Black text */
-	margin-left: 1rem; /* Space between buttons */
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
 	font-size: 1rem; /* Responsive font size */
+	margin-left: 0.5rem; /* Space between buttons */
 }
 
 .clear-button:hover {
@@ -120,10 +121,10 @@ body {
 	background-color: #222; /* Dark background */
 	color: #fff; /* White text */
 	transition: border-color 0.3s;
-	font-size: 1 rem; /* Responsive font size */
+	font-size: 1rem; /* Responsive font size */
 }
 
-.pokemon-select:focus {
+.pokemon ```css -select:focus {
 	border-color: #ffcc00; /* Yellow focus border */
 }
 
@@ -193,6 +194,8 @@ body {
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
 	font-size: 1rem; /* Responsive font size */
+	flex: 1; /* Allow buttons to grow equally */
+	min-width: 100px; /* Minimum width for buttons */
 }
 
 .pagination .pagination-button:hover {
@@ -220,8 +223,8 @@ body {
 	}
 
 	.pagination {
-		flex-direction: column; /* Stack pagination buttons */
-		align-items: center;
+		flex-direction: row; /* Keep pagination in a row */
+		justify-content: center; /* Center pagination */
 	}
 
 	.button,
@@ -229,11 +232,13 @@ body {
 	.search-button {
 		width: 100%; /* Full width for buttons on mobile */
 		max-width: 200px; /* Limit max width */
+		margin: 0.5rem 0; /* Space between buttons */
 	}
 
 	.search-input,
 	.pokemon-select {
 		width: 100%; /* Full width for inputs on mobile */
 		max-width: 90%; /* Limit max width */
+		margin: 0.5rem 0; /* Space around input */
 	}
 }
