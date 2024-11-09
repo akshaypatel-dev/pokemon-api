@@ -1,4 +1,3 @@
-// src/containers/PokemonSearchContainer.tsx
 import React, { useEffect, useState } from "react";
 import PokemonSearch from "../components/pokemonSearch";
 import PokemonCard from "../components/pokemonCard";
