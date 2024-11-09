@@ -30,7 +30,7 @@ const PokemonSearch: React.FC<PokemonSearchProps> = ({
 			onSearch(term);
 		}
 		setLoading(false);
-	}, 0);
+	}, 100);
 
 	const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;

@@ -6,14 +6,14 @@ const PokemonSearchContainer: React.FC = () => {
 	const [pokemons, setPokemons] = useState<any[]>([]);
 	const [filteredPokemons, setFilteredPokemons] = useState<any[]>([]);
 	const [currentPage, setCurrentPage] = useState<number>(1);
-	const [pokemonsPerPage] = useState<number>(10);
+	const [pokemonsPerPage] = useState<number>(8);
 	const [error, setError] = useState<string>("");
 	const [searchError, setSearchError] = useState<string>("");
 
 	useEffect(() => {
 		const fetchPokemons = async () => {
 			try {
-				const promises = Array.from({ length: 900 }, (_, index) =>
+				const promises = Array.from({ length: 850 }, (_, index) =>
 					fetch(`https://pokeapi.co/api/v2/pokemon/${index + 1}`).then((res) =>
 						res.json()
 					)
