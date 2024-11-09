@@ -6,7 +6,10 @@ interface PokemonSearchProps {
 	noResults: boolean; // New prop to indicate no results
 }
 
-const PokemonSearch: React.FC<PokemonSearchProps> = ({ onSearch, noResults }) => {
+const PokemonSearch: React.FC<PokemonSearchProps> = ({
+	onSearch,
+	noResults,
+}) => {
 	const [searchTerm, setSearchTerm] = useState<string>("");
 	const [loading, setLoading] = useState<boolean>(false);
 
@@ -50,7 +53,8 @@ const PokemonSearch: React.FC<PokemonSearchProps> = ({ onSearch, noResults }) =>
 
 	const handleClear = () => {
 		setSearchTerm("");
-		onSearch(""); // Clear the search
+		onSearch(searchTerm);
+		// Clear the search
 	};
 
 	return (
@@ -74,7 +78,7 @@ const PokemonSearch: React.FC<PokemonSearchProps> = ({ onSearch, noResults }) =>
 
 			{loading && <p className="loading-message">Loading...</p>}
 
-			{noResults && <p className="error-message">No Pokémon found.</p>}
+			{noResults && <p className="error-message"> No Pokémon found.</p>}
 		</div>
 	);
 };

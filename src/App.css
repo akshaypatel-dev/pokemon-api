@@ -124,7 +124,7 @@ body {
 	font-size: 1rem; /* Responsive font size */
 }
 
-.pokemon ```css -select:focus {
+.pokemon-select:focus {
 	border-color: #ffcc00; /* Yellow focus border */
 }
 
@@ -242,3 +242,4 @@ body {
 		margin: 0.5rem 0; /* Space around input */
 	}
 }
+

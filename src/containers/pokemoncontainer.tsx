@@ -5,9 +5,11 @@ import PokemonCard from "../components/pokemonCard";
 
 const PokemonSearchContainer: React.FC = () => {
 	const [pokemons, setPokemons] = useState<any[]>([]);
+	const [filteredPokemons, setFilteredPokemons] = useState<any[]>([]);
 	const [currentPage, setCurrentPage] = useState<number>(1);
 	const [pokemonsPerPage] = useState<number>(10);
 	const [error, setError] = useState<string>("");
+	const [searchError, setSearchError] = useState<string>("");
 
 	useEffect(() => {
 		const fetchPokemons = async () => {
@@ -19,7 +21,8 @@ const PokemonSearchContainer: React.FC = () => {
 				);
 				const results = await Promise.all(promises);
 				setPokemons(results);
-			} catch (err) {
+				setFilteredPokemons(results); // Initialize filteredPokemons with all pokemons
+			} catch (error) {
 				setError("Failed to load Pokémon data.");
 			}
 		};
@@ -28,22 +31,30 @@ const PokemonSearchContainer: React.FC = () => {
 	}, []);
 
 	const handleSearch = (term: string) => {
-		const filteredPokemons = pokemons.filter((pokemon) =>
-			pokemon.name.toLowerCase().includes(term.toLowerCase())
+		const lowerCaseTerm = term.toLowerCase();
+		const filtered = pokemons.filter((pokemon) =>
+			pokemon.name.toLowerCase().includes(lowerCaseTerm)
 		);
-		setPokemons(filteredPokemons);
+
+		if (filtered.length === 0) {
+			setSearchError("No Pokémon found matching your search.");
+		} else {
+			setSearchError(""); // Clear search error if results are found
+		}
+
+		setFilteredPokemons(filtered); // Update filteredPokemons
 		setCurrentPage(1); // Reset to first page on new search
 	};
 
 	// Pagination logic
 	const indexOfLastPokemon = currentPage * pokemonsPerPage;
 	const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
-	const currentPokemons = pokemons.slice(
+	const currentPokemons = filteredPokemons.slice(
 		indexOfFirstPokemon,
 		indexOfLastPokemon
 	);
 
-	const totalPages = Math.ceil(pokemons.length / pokemonsPerPage);
+	const totalPages = Math.ceil(filteredPokemons.length / pokemonsPerPage);
 
 	const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -63,6 +74,7 @@ const PokemonSearchContainer: React.FC = () => {
 		<div className="pokemon-search-container">
 			<PokemonSearch onSearch={handleSearch} noResults={false} />
 			{error && <p className="error-message">{error}</p>}
+			{searchError && <p className="error-message">{searchError}</p>}
 			<div className="pokemon-cards">
 				{currentPokemons.map((pokemon) => (
 					<PokemonCard

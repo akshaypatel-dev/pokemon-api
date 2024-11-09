@@ -17,7 +17,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
 	return (
 		<div className="pokemon-card">
 			<h2 className="pokemon-name">{name}</h2>
-			<img className="pokemon-image " src={image} alt={name} />
+			<img className="pokemon-image" src={image} alt={name} />
 			<p className="pokemon-type">Type: {types}</p>
 			<p className="pokemon-id">ID: {id}</p>
 		</div>
