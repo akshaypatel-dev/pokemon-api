@@ -13,7 +13,7 @@ const PokemonSearchContainer: React.FC = () => {
 	useEffect(() => {
 		const fetchPokemons = async () => {
 			try {
-				const promises = Array.from({ length: 151 }, (_, index) =>
+				const promises = Array.from({ length: 900 }, (_, index) =>
 					fetch(`https://pokeapi.co/api/v2/pokemon/${index + 1}`).then((res) =>
 						res.json()
 					)
@@ -22,7 +22,7 @@ const PokemonSearchContainer: React.FC = () => {
 				setPokemons(results);
 				setFilteredPokemons(results); // Initialize filteredPokemons with all pokemons
 			} catch (error) {
-				setError("Failed to load Pokémon data.");
+				Error("Failed to load Pokémon data.");
 			}
 		};
 
