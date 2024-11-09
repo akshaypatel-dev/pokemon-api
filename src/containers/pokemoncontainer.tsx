@@ -13,7 +13,7 @@ const PokemonSearchContainer: React.FC = () => {
 	useEffect(() => {
 		const fetchPokemons = async () => {
 			try {
-				const promises = Array.from({ length: 850 }, (_, index) =>
+				const promises = Array.from({ length: 950 }, (_, index) =>
 					fetch(`https://pokeapi.co/api/v2/pokemon/${index + 1}`).then((res) =>
 						res.json()
 					)
