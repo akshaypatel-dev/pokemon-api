@@ -1,5 +1,5 @@
 // src/components/PokemonSearch.tsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 interface PokemonSearchProps {
 	onSearch: (term: string) => void;
